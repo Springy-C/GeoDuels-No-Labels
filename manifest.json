@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "GeoDuels No Labels Final Frfr 1.9",
+  "version": "1.9.0",
+  "description": "Hides street names and road labels in GeoDuels Street View.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://geoduels.io/*",
+    "http://localhost:3000/*",
+    "https://www.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://geoduels.io/*", "http://localhost:3000/*"],
+      "js": ["content/host.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.google.com/maps/embed/*"],
+      "js": ["content/streetview.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
