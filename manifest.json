@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "GeoDuels No Labels Final Frfr 1.9",
-  "version": "1.9.0",
+  "name": "GeoDuels No Labels 1.9.1",
+  "version": "1.9.1",
   "description": "Hides street names and road labels in GeoDuels Street View.",
   "icons": {
     "16": "icons/icon16.png",

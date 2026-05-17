@@ -1,4 +1,4 @@
-const keys = ["hideRoadLabels", "hideBusinessLabels", "hidePOILabels", "hideTransitLabels"];
+const keys = ["hideRoadLabels"];
 
 // Load saved settings and sync to checkboxes
 chrome.storage.sync.get(keys, (settings) => {
@@ -18,7 +18,7 @@ keys.forEach((key) => {
       const input = document.getElementById(k);
       if (input) update[k] = input.checked;
     });
-    chrome.storage.sync.set(update);
+      chrome.storage.sync.set(update);
   });
 });
 
@@ -27,7 +27,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
   const pill = document.getElementById("statusPill");
   const text = document.getElementById("statusText");
   const isGeo =
-    tab?.url?.includes("geoduels.io") || tab?.url?.includes("localhost:3000");
+  tab?.url?.includes("geoduels.io") || tab?.url?.includes("localhost:3000");
   if (!isGeo) {
     pill.classList.add("inactive");
     text.textContent = "Open geoduels.io to activate";

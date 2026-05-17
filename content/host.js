@@ -16,7 +16,7 @@ function applySettingsToFrame(iframe, settings) {
 function getSettings() {
   return new Promise((resolve) => {
     chrome.storage.sync.get(
-      ["hideRoadLabels", "hideBusinessLabels", "hidePOILabels", "hideTransitLabels"],
+      ["hideRoadLabels"],
       resolve
     );
   });
